@@ -19,6 +19,9 @@ function Navbar(props){
                     <Link to="/new_product">
                         <Menu.Item>Créer un produit</Menu.Item>
                     </Link>
+                    <Menu.Item onClick={Meteor.logout}>Déconnexion</Menu.Item>
+
+
             
                 </Fragment>
             :
