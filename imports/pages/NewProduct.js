@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Form, Container } from 'semantic-ui-react'
+import { Form, Container, Button } from 'semantic-ui-react'
+
 
 function NewProduct(props){
     const [product, setProduct] = useState({})
@@ -11,15 +12,17 @@ function NewProduct(props){
                 type="text" 
                 label="Nom du produit"
                 value={product.name}
-                onChange={(e, {value}) => setProduct({name: value, ...product})}
+                onChange={(e, {value}) => setProduct({ ...product, name: value})}
                 />
                 <Form.Input
                 type="number" 
                 label="Prix"
                 value={product.prix}
-                onChange={(e, {value}) => setProduct({price: value, ...product})}
+                onChange={(e, {value}) => setProduct({ ...product, price: value})}
                 />
             </Form>
+            
+            <Button color="green" icon="plus" content="Créer un produit" />
         </Container>
     
     )
