@@ -1,13 +1,21 @@
 import React from 'react'
 import { withTracker } from 'meteor/react-meteor-data' 
-
+import { Link } from 'react-router-dom'
+import { Button } from 'semantic-ui-react'
 
 function AdminUsers(props){
     return(
         <div>
             <h1>gestion des utilisateurs</h1>
             {!props.loading && props.users.map(user => {
-            return <p>{user.emails[0].address}</p>
+            return(
+                <div>
+                    {user.emails[0].address}
+                    <Link to={"/catalog/" + user._id}>
+                        <Button>Catalogue</Button>
+                    </Link>
+                </div>
+            )
             })}
         </div>
 
