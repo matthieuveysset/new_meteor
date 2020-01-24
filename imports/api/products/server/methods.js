@@ -10,5 +10,12 @@ Meteor.methods({
         product.seller = this.userId
         const product_id = Products.insert(product)
         return Products.findOne({_id: product_id})
+    },
+    'products.remove': function(product_id){
+        if(!this.userId){
+            throw new Meteor.Error('402', "Bien tenté :*")
+        }
+        Products.remove({seller: this.userId, _id: product_id})
+        return true
     }
 })
